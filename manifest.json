@@ -1,0 +1,13 @@
+{
+    "name": "Lichess Rating Block",
+    "version": "1.0",
+    "description": "Blocks ratings on lichess.org",
+    "content_scripts": [
+        {
+            "matches": ["https://lichess.org/*"],
+            "js": ["/content_script.js"]
+        }
+    ],
+    
+    "manifest_version": 2
+}
