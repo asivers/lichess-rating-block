@@ -1,12 +1,8 @@
-#LICHESS RATING BLOCK
+## Lichess Rating Block
 
-<font size="5">
-  This extension blocks the following elements at lichess desktop and mobile web versions:
-</font>
+This extension blocks the following items in the desktop and mobile versions of lichess:
 
-<font size="4">
-  <li>Ratings (all)</li>
-  <li>Rating changes after game (+/-)</li>
-  <li>Titles (GM, IM etc.)</li>
-  <li>Head-to-head score (under the board)</li>
-</font>
+* Ratings (all)
+* Rating changes after game (+/-)
+* Titles (GM, IM etc.)
+* Head-to-head score (under the board)
