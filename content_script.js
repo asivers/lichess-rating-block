@@ -24,11 +24,11 @@ const classRemoverMultiple = classList => {
   classList.forEach(className => classRemover(className))
 }
 
-const callback = function(mutationsList) {
-  for (const mutation of mutationsList) {
+const callback = mutationsList => {
+  mutationsList.forEach(() => {
     tagRemoverMultiple(['rating', 'good', 'bad', 'strong', 'green', 'red'])
     classRemoverMultiple(['rating', 'utitle', 'crosstable', 'user-link ulpt', 'sub-ratings', 'versus'])
-  }
+  })
 }
 
 const observer = new MutationObserver(callback)
