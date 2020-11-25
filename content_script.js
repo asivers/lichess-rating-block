@@ -30,7 +30,7 @@ const callback = function(mutationsList, observer) {
           tagRemoverMultiple(['rating', 'good', 'bad', 'strong', 'green', 'red'])
         }
         else if (mutation.type === 'attributes') {
-          classRemoverMultiple(['rating', 'utitle', 'crosstable', 'user-link ulpt', 'sub-ratings'])
+          classRemoverMultiple(['rating', 'utitle', 'crosstable', 'user-link ulpt', 'sub-ratings', 'versus'])
         }
     }
 }
