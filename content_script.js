@@ -7,7 +7,6 @@ const tagRemoverMultiple = tagList => {
     let eltToRemoveList = document.getElementsByTagName(tagName)
     if (eltToRemoveList.length > 0) {
       eltToRemoveList[0].parentElement.removeChild(eltToRemoveList[0])
-      tagRemover(tagName)
     }
   }
   tagList.forEach(tagName => tagRemover(tagName))
@@ -18,7 +17,6 @@ const classRemoverMultiple = classList => {
     let eltToRemoveList = document.getElementsByClassName(className)
     if (eltToRemoveList.length > 0) {
       eltToRemoveList[0].parentElement.removeChild(eltToRemoveList[0])
-      classRemover(className)
     }
   }
   classList.forEach(className => classRemover(className))
