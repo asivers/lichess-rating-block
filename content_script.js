@@ -2,30 +2,30 @@ const targetNode = document
 
 const config = { attributes: true, childList: true, subtree: true }
 
-const tagRemoverMultiple = tagList => {
-  const tagRemover = tagName => {
-    let eltToRemoveList = document.getElementsByTagName(tagName)
+const multipleRemover = (namesList, type) => {
+  const eltRemover = (eltName, type) => {
+    const getEltsToRemoveList = (eltName, type) => {
+      switch (type) {
+        case 'TAG':
+          return document.getElementsByTagName(eltName)
+        case 'CLASS':
+          return document.getElementsByClassName(eltName)
+        default:
+          return []
+      }
+    }
+    const eltToRemoveList = getEltsToRemoveList(eltName, type)
     if (eltToRemoveList.length > 0) {
       eltToRemoveList[0].parentElement.removeChild(eltToRemoveList[0])
     }
   }
-  tagList.forEach(tagName => tagRemover(tagName))
-}
-
-const classRemoverMultiple = classList => {
-  const classRemover = className => {
-    let eltToRemoveList = document.getElementsByClassName(className)
-    if (eltToRemoveList.length > 0) {
-      eltToRemoveList[0].parentElement.removeChild(eltToRemoveList[0])
-    }
-  }
-  classList.forEach(className => classRemover(className))
+  namesList.forEach(eltName => eltRemover(eltName, type))
 }
 
 const callback = mutationsList => {
   mutationsList.forEach(() => {
-    tagRemoverMultiple(['rating', 'good', 'bad', 'strong', 'green', 'red'])
-    classRemoverMultiple(['rating', 'utitle', 'crosstable', 'user-link ulpt', 'sub-ratings', 'versus'])
+    multipleRemover(['rating', 'good', 'bad', 'strong', 'green', 'red'], 'TAG')
+    multipleRemover(['rating', 'utitle', 'crosstable', 'user-link ulpt', 'sub-ratings', 'versus'], 'CLASS')
   })
 }
 
