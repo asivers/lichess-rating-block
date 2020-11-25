@@ -2,9 +2,9 @@ const targetNode = document
 
 const config = { attributes: true, childList: true, subtree: true }
 
-const multipleRemover = (namesList, type) => {
-  const eltRemover = (eltName, type) => {
-    const getEltsToRemoveList = (eltName, type) => {
+const multipleRemover = (type, namesList) => {
+  const eltRemover = (type, eltName) => {
+    const getEltsToRemoveList = (type, eltName) => {
       switch (type) {
         case 'TAG':
           return document.getElementsByTagName(eltName)
@@ -14,18 +14,22 @@ const multipleRemover = (namesList, type) => {
           return []
       }
     }
-    const eltToRemoveList = getEltsToRemoveList(eltName, type)
+    const eltToRemoveList = getEltsToRemoveList(type, eltName)
     if (eltToRemoveList.length > 0) {
       eltToRemoveList[0].parentElement.removeChild(eltToRemoveList[0])
     }
   }
-  namesList.forEach(eltName => eltRemover(eltName, type))
+  namesList.forEach(eltName => eltRemover(type, eltName))
 }
 
 const callback = mutationsList => {
   mutationsList.forEach(() => {
-    multipleRemover(['rating', 'good', 'bad', 'strong', 'green', 'red'], 'TAG')
-    multipleRemover(['rating', 'utitle', 'crosstable', 'user-link ulpt', 'sub-ratings', 'versus'], 'CLASS')
+    multipleRemover(
+      'TAG', ['rating', 'good', 'bad', 'strong', 'green', 'red']
+      )
+    multipleRemover(
+      'CLASS', ['rating', 'utitle', 'crosstable', 'user-link ulpt', 'sub-ratings', 'versus', 'highcharts-series-group']
+      )
   })
 }
 
